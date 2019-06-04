@@ -2,46 +2,72 @@
 <html>
   <head>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
   </head>
   <body>
-    <button>click me 1</button>
+    <!-- <button>click me 1</button>
     <button>click me 2</button>
     <button>click me 3</button>
-    <button>click me 4</button>
+    <button>click me 4</button> -->
+    <img src="diamond.jpg" alt="">
+    <img src="emerald.jpg" alt="">
+    <img src="ruby.jpg" alt="">
+    <img src="sapphire.jpg" alt="">
+    <h1 id ="goal"></h1>
+    <h1 id ="input"></h1>
+    <h3>wins: <span id="wins">0</span></h3>
+    <h3>losses: <span id="loss">0</span></h3>
     <script>
 
-      var randomNumCrystal = (Math.floor(Math.random() * 12) + 1)
+      var randomNumCrystal = Math.floor(Math.random()*(12-1+1)+1);
 
-      //buttons
-      var emerald = randomNumCrystal
-      var diamond = randomNumCrystal
-      var ruby = randomNumCrystal
-      var saphire = randomNumCrystal
+      var userInput = 0;
 
-      var userInput = 0
+      var goalOutput = Math.floor(Math.random()*(120-19+1)+19);
 
-      var goalOuput = (Math.floor(Math.random() * 120) + 19)
+      var wins = 0;
+      var loss = 0;
+      $("#goal").text(goalOutput);
       
-      function randomizedNum() {
-          $("button").each(function(){
-            var randomNumCrystal = (Math.floor(Math.random() * 12) + 1)
-            console.log(randomNumCrystal)
-            //does something
-            $(this).attr("randNum",randomNumCrystal)
-            $(this).text(randomNumCrystal)
-          })
-      }
+       function randomizedNum() {
+           $("img").each(function(){
+             var randomNumCrystal = Math.floor(Math.random()*(12-1+1)+1);
+             console.log(randomNumCrystal);
+             //does something
+             $(this).attr("randNum",randomNumCrystal);
+             $(this).text(randomNumCrystal);
+           });
+       }
       
-      $("button").on("click",function() {
-        var x = parseInt($(this).attr("randNum"))
-    		userInput = Number(userInput) + Number(x)
-        console.log("button clicked")
-        $("#input").text(x)
+      $("img").on("click",function() {
+        var x = parseInt($(this).attr("randNum"));
+    		userInput = Number(userInput) + Number(x);
+        console.log("button clicked");
+        $("#input").text(userInput);
+        console.log(x);
         // pushes same value of randomizedNum
         // adds value to a total number
+          if (userInput > goalOutput){
+            alert("You lose");
+            userInput=0;
+            $("#input").text(userInput);
+            goalOutput=Math.floor(Math.random()*(120-19+1)+19);
+            $("#goal").text(goalOutput);
+            loss++;
+            $("#loss").text(loss);
+          }
+          else if(userInput === goalOutput){
+            alert("You win");
+            userInput=0;
+            $("#input").text(userInput);
+            goalOutput=Math.floor(Math.random()*(120-19+1)+19);
+            $("#goal").text(goalOutput);
+            wins++;
+            $("#wins").text(wins);
+          }
       })
-      randomizedNum()
+      randomizedNum();
+
+
       
     </script>
   </body>
