@@ -3,24 +3,33 @@
   <head>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <style>
+          body {
+            background-image: url("background.jpg");
+          }
           h1 {
             background-color: aqua;
             width: 300px;
             text-align: center;
+            color: white;
+          }
+          h3 {
+            color: white;
           }
           img {
             height: 150px;
             width: 200px;
-            margin: 5px, 5px, 5px, 5px;
+            margin: 10px, 10px, 10px, 10px;
           }
         </style>
   </head>
   <body>
     <h1>Crystals Collector</h1>
-    <img src="diamond.jpg" alt="">
-    <img src="emerald.jpg" alt="">
-    <img src="ruby.jpg" alt="">
-    <img src="sapphire.jpg" alt="">
+    <div id="img">
+      <img src="diamond.jpg" alt="">
+      <img src="emerald.jpg" alt="">
+      <img src="ruby.jpg" alt="">
+      <img src="sapphire.jpg" alt="">
+    </div>
     <h1 id ="goal"></h1>
     <h1 id ="input"></h1>
     <h3>wins: <span id="wins">0</span></h3>
