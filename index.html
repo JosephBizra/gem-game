@@ -2,12 +2,21 @@
 <html>
   <head>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <style>
+          h1 {
+            background-color: aqua;
+            width: 300px;
+            text-align: center;
+          }
+          img {
+            height: 150px;
+            width: 200px;
+            margin: 5px, 5px, 5px, 5px;
+          }
+        </style>
   </head>
   <body>
-    <!-- <button>click me 1</button>
-    <button>click me 2</button>
-    <button>click me 3</button>
-    <button>click me 4</button> -->
+    <h1>Crystals Collector</h1>
     <img src="diamond.jpg" alt="">
     <img src="emerald.jpg" alt="">
     <img src="ruby.jpg" alt="">
@@ -17,35 +26,38 @@
     <h3>wins: <span id="wins">0</span></h3>
     <h3>losses: <span id="loss">0</span></h3>
     <script>
-
+      // Value of crystals.
       var randomNumCrystal = Math.floor(Math.random()*(12-1+1)+1);
 
+      // Score of total crystal clicks.
       var userInput = 0;
 
+      // Target score to win.
       var goalOutput = Math.floor(Math.random()*(120-19+1)+19);
 
+      // log of wins and losses.
       var wins = 0;
       var loss = 0;
       $("#goal").text(goalOutput);
       
+       // Assigns randomized values to each crystal.
        function randomizedNum() {
            $("img").each(function(){
              var randomNumCrystal = Math.floor(Math.random()*(12-1+1)+1);
              console.log(randomNumCrystal);
-             //does something
              $(this).attr("randNum",randomNumCrystal);
              $(this).text(randomNumCrystal);
            });
        }
       
+      // Adds crystal values to userInput on click.
       $("img").on("click",function() {
         var x = parseInt($(this).attr("randNum"));
     		userInput = Number(userInput) + Number(x);
         console.log("button clicked");
         $("#input").text(userInput);
         console.log(x);
-        // pushes same value of randomizedNum
-        // adds value to a total number
+          // Conditions for wins and losses.
           if (userInput > goalOutput){
             alert("You lose");
             userInput=0;
