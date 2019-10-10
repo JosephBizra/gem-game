@@ -6,14 +6,22 @@
           body {
             background-image: url("Assets/Images/background.jpg");
           }
+          #content {
+            width: 70%;
+            margin: auto;
+          }
           h1 {
             background-color: aqua;
             width: 300px;
             text-align: center;
+            margin: 5px auto;
             color: white;
           }
           h3 {
             color: white;
+            background: rgb(0, 0, 0, 0.5);
+            width: 100px;
+            text-align: center;
           }
           img {
             height: 150px;
@@ -23,6 +31,7 @@
         </style>
   </head>
   <body>
+    <div id="content">
     <h1>Crystals Collector</h1>
     <div id="img">
       <img src="Assets/Images/diamond.jpg" alt="">
@@ -34,6 +43,7 @@
     <h1 id ="input"></h1>
     <h3>wins: <span id="wins">0</span></h3>
     <h3>losses: <span id="loss">0</span></h3>
+  </div>
     <script>
       // Value of crystals.
       var randomNumCrystal = Math.floor(Math.random()*(12-1+1)+1);
